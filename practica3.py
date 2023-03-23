@@ -30,7 +30,9 @@ stop_words = { ##Articulos
                         'ellas', 'ustedes', 'quien', 'quienes', 'cual', 'cuales', 'cuanto', 'cuanta', 'cuantos',
                         'cuantas', 'que', 'esto', 'eso', 'aquello', 'nada', 'algo', 'alguien', 'nadie', 'quienquiera',
                         'quienesquiera', 'cualquiera', 'cualesquiera', 'cuantoquiera', 'cuantaquiera', 'cuantosquiera',
-                        'cuantasquiera', 'quequiera', 'dondequiera', 'comoquiera', 'cuandoquiera', 'estos', 'esos'
+                        'cuantasquiera', 'quequiera', 'dondequiera', 'comoquiera', 'cuandoquiera', 'estos', 'esos',
+                    ##Otros
+                        'edd'
                     }
 
 def cosine_similarity(x, y):
@@ -66,8 +68,11 @@ X_tfidf = vectorizador_tfidf.fit_transform(df[0])
 print ('Representación vectorial tf-idf')
 print (X_tfidf.toarray())
 
+#Se pide el nombre del archivo a procesar
+archivoAProcesar = input("Ingrese el nombre del archivo a procesar, incluyendo la extensión .txt=")
+
 # Leemos el archivo que contiene la noticia a ser comparada
-with open("noticia.txt", "r") as f:
+with open(archivoAProcesar, "r") as f:
     noticia = f.read().splitlines()
 df_noticia = pd.DataFrame(noticia)
 
